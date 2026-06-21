@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>稳定的起点 · ayx 入口说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #f4f9fc;
+            color: #1e2c3a;
+            line-height: 1.7;
+            padding: 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 780px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 网格卡片式背景 ( subtle ) */
+        .card-grid {
+            background: white;
+            border-radius: 28px;
+            padding: 2rem 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 60, 55, 0.06), 0 2px 6px rgba(0, 30, 30, 0.03);
+            border: 1px solid #d9edf0;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card-grid:hover {
+            box-shadow: 0 12px 32px rgba(0, 110, 110, 0.08);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0b3b3b;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #3d6b6b;
+            border-left: 4px solid #2a9d8f;
+            padding-left: 1.2rem;
+            margin: 0.5rem 0 1.8rem 0;
+            font-weight: 380;
+        }
+
+        p {
+            margin-bottom: 1.4rem;
+            font-size: 1rem;
+            color: #1e3a3a;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            background: #e5f3f0;
+            padding: 1rem 1.4rem;
+            border-radius: 40px 16px 16px 40px;
+            color: #084c4c;
+            margin: 1.8rem 0 1.5rem 0;
+            border-left: 6px solid #2a9d8f;
+        }
+
+        .highlight-link {
+            color: #1f7a6e;
+            font-weight: 520;
+            text-decoration: none;
+            border-bottom: 2px solid #b3e0d6;
+            transition: border-color 0.15s, color 0.15s;
+            padding: 0 0.1rem;
+        }
+
+        .highlight-link:hover {
+            color: #0b4f47;
+            border-bottom-color: #1f7a6e;
+        }
+
+        blockquote {
+            background: #f0f8f6;
+            padding: 1rem 1.5rem;
+            border-radius: 24px;
+            margin: 1.6rem 0;
+            border-left: 6px solid #2a9d8f;
+            font-style: normal;
+            color: #1b4e4a;
+        }
+
+        blockquote p {
+            margin-bottom: 0.2rem;
+        }
+
+        .meta-quote {
+            font-size: 0.9rem;
+            color: #3e6d67;
+            margin-top: 0.6rem;
+            display: block;
+        }
+
+        .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.5rem;
+            margin: 2rem 0 1.2rem 0;
+            list-style: none;
+        }
+
+        .faq-mini li {
+            background: #f2faf9;
+            padding: 1rem 1.1rem;
+            border-radius: 24px;
+            border: 1px solid #ccdfdb;
+            font-size: 0.95rem;
+            color: #1a423f;
+            transition: background 0.15s;
+        }
+
+        .faq-mini li strong {
+            display: block;
+            color: #13544a;
+            font-weight: 530;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-mini li:hover {
+            background: #def0ec;
+        }
+
+        .note-box {
+            background: #e2f0ed;
+            border-radius: 48px 16px 16px 48px;
+            padding: 1.1rem 1.6rem;
+            font-size: 0.95rem;
+            color: #03423b;
+            border: 1px solid #bcd9d2;
+            margin: 1.5rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #527a74;
+            font-size: 0.85rem;
+            border-top: 1px solid #cde3de;
+            padding-top: 1.8rem;
+            margin-top: 1.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-note a {
+            color: #1f6f65;
+            text-decoration: none;
+            border-bottom: 1px solid #b5cfc9;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #1f6f65;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+            .card-grid {
+                padding: 1.5rem 1.2rem;
+                border-radius: 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .subhead {
+                font-size: 1rem;
+                padding-left: 0.9rem;
+            }
+            .faq-mini {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            .lead {
+                font-size: 1rem;
+                padding: 0.8rem 1.2rem;
+            }
+            blockquote {
+                padding: 0.9rem 1.2rem;
+            }
+        }
+
+        /* 极简点缀 */
+        .accent-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #2a9d8f;
+            border-radius: 12px;
+            margin-right: 0.3rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed #d0e6e0;
+            margin: 1.6rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card-grid">
+            <h1>一个安静的入口</h1>
+            <div class="subhead">在变化中找到不变的框架</div>
+
+            <p class="lead">
+                <span class="accent-dot"></span> 把 <a href="https://index-main-ayx.com" class="highlight-link">ayx</a> 看作一条固定的小径——它不喧哗，只是提供一种稳定的访问方式。页面的结构始终清晰，就像一本常备的手册。
+            </p>
+
+            <p>
+                无论是初次接触还是日常使用，一个干净、直接的起始页往往比复杂的导航更可靠。不需要记忆一连串的路径，也不需要反复适应界面重构。只需要记住一个名字，剩下的交给稳定的连接。
+            </p>
+
+            <p>
+                很多服务在迭代中不断改变入口，而 <a href="https://index-main-ayx.com" class="highlight-link">ayx</a> 选择了另一种姿态：不变。保持链接的有效性和页面的可读性，实质上是对访问者的一种尊重——让你把注意力放在要做的事情上，而不是放在寻找入口上。
+            </p>
+
+            <blockquote>
+                <p>“一个好的入口几乎没有存在感，它只是在你需要的时候，恰好在那里。”</p>
+                <span class="meta-quote">—— 来自一篇关于界面设计的笔记</span>
+            </blockquote>
+
+            <p>
+                这个站点的定位非常单纯：提供一个可依赖的页面说明。它既不堆积功能，也不追逐潮流。所有的信息都摆放在明处，没有隐藏的层级，没有过度的装饰。如果你习惯于在书签栏里保留几个稳定的锚点，那么这里值得留一个位置。
+            </p>
+
+            <hr>
+
+            <div style="margin: 1.2rem 0 0.8rem 0; font-weight: 430; color: #0b4b43;">
+                ▎ 一些常见但简单的问题
+            </div>
+            <ul class="faq-mini">
+                <li><strong>这个页面会变吗？</strong> 结构长期保持，内容会随需要做细微更新，入口地址不变。</li>
+                <li><strong>怎样最快回到这里？</strong> 记住 <a href="https://index-main-ayx.com" class="highlight-link">ayx</a> 这个短名称，在浏览器地址栏直接输入即可。</li>
+                <li><strong>需要注册或下载吗？</strong> 不需要，纯粹的信息页面，开箱即用。</li>
+                <li><strong>移动端浏览效果如何？</strong> 为小屏幕做了适配，卡片布局自动调整，阅读舒适。</li>
+            </ul>
+
+            <div class="note-box">
+                <span style="font-weight: 500;">💡 提示：</span> 如果你正在寻找一个没有多余干扰的起始页，不妨把 <a href="https://index-main-ayx.com" class="highlight-link">ayx</a> 加入书签。它安静、轻量、始终如一。
+            </div>
+
+            <p>
+                最后，保持简单是一种选择。在这个不断弹出新窗口、新通知的数字环境里，一个不打扰、不诱导的页面本身就是一种善意。希望每次你通过 <a href="https://index-main-ayx.com" class="highlight-link">ayx</a> 来到这里时，都能觉得清晰、从容。
+            </p>
+
+            <div class="footer-note">
+                <span>· 稳定的入口 · 克制的说明 ·</span><br>
+                <span style="opacity: 0.65;">持续在线 · 版本记录安静保留</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
